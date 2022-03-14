@@ -1,3 +1,4 @@
+
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #else
@@ -10,7 +11,14 @@
 #endif
 #endif
 
+#include "lwip/api.h"
+#include "lwip/netifapi.h"
+#include "lwip/udp.h"
+#include "lwip/tcp.h"
+#include "lwip/tcpip.h"
+#include "lwip/sockets.h"
 
 FOUNDATION_EXPORT double lwipVersionNumber;
 FOUNDATION_EXPORT const unsigned char lwipVersionString[];
+
 

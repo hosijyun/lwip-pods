@@ -29,8 +29,30 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.pod_target_xcconfig = {
+    "HEADER_SEARCH_PATHS" =>"$(PODS_TARGET_SRCROOT)/lwip_opts/",
+    "USER_HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/lwip/src/include/ $(PODS_TARGET_SRCROOT)/lwip/contrib/ports/unix/port/include/",
+    "CLANG_ENABLE_MODULES" => "NO"
+  }
 
-  s.source_files = 'lwip/Classes/**/*'
+  s.module_map = "#{s.name}.modulemap"
+  s.header_mappings_dir = 'lwip_opts'
+  s.source_files = 'lwip_opts/*.h', 'lwip_opts/*.c', 'lwip/src/core/**/*.c', 'lwip/src/netif/**/*.c', 'lwip/src/api/**/*.c', 'lwip/contrib/ports/unix/port/sys_arch.c', 'lwip/contrib/ports/unix/port/netif/sio.c', 'lwip/contrib/ports/unix/port/netif/fifo.c'
+  s.public_header_files = 'lwip_opts/*.h'
+  s.swift_version = '5.0'
+
+  s.subspec 'lwip' do |s|
+    s.header_mappings_dir = 'lwip/src/include/'
+    s.source_files = 'lwip/src/include/lwip/**/*.h'
+    s.public_header_files = 'lwip/src/include/lwip/**/*.h'
+  end
+  s.subspec 'port' do |s|
+    s.header_mappings_dir = 'lwip/contrib/ports/unix/port/include/'
+    s.source_files = 'lwip/contrib/ports/unix/port/include/**/*.h'
+    s.public_header_files = 'lwip/contrib/ports/unix/port/include/**/*.h'
+  end
+
+
   
   # s.resource_bundles = {
   #   'lwip' => ['lwip/Assets/*.png']

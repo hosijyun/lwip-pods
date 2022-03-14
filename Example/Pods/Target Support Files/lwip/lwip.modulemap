@@ -1,6 +1,0 @@
-framework module lwip {
-  umbrella header "lwip-umbrella.h"
-
-  export *
-  module * { export * }
-}
