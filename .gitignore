@@ -36,3 +36,4 @@ Carthage/Build
 #
 # Pods/
 Example/
+pod_index.sh

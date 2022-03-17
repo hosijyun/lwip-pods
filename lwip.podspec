@@ -30,9 +30,11 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
   s.pod_target_xcconfig = {
-    "HEADER_SEARCH_PATHS" =>"$(PODS_TARGET_SRCROOT)/lwip_opts/",
-    "USER_HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/lwip/src/include/ $(PODS_TARGET_SRCROOT)/lwip/contrib/ports/unix/port/include/",
+    "USER_HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/lwip_opts/ $(PODS_TARGET_SRCROOT)/lwip/src/include/ $(PODS_TARGET_SRCROOT)/lwip/contrib/ports/unix/port/include/",
     "CLANG_ENABLE_MODULES" => "NO"
+  }
+  s.user_target_xcconfig = {
+    "HEADER_SEARCH_PATHS" => "${PODS_CONFIGURATION_BUILD_DIR}/lwip/lwip.framework/Headers"
   }
 
   s.module_map = "#{s.name}.modulemap"
