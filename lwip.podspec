@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'hesiyuan' => 'hesiyuan@gmail.com' }
-  s.source           = { :git => 'https://github.com/hesiyuan/lwip.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:hosijyun/lwip-pods.git', :submodules => true }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
@@ -45,8 +45,8 @@ TODO: Add long description of the pod here.
 
   s.subspec 'lwip' do |s|
     s.header_mappings_dir = 'lwip/src/include/'
-    s.source_files = 'lwip/src/include/lwip/**/*.h'
-    s.public_header_files = 'lwip/src/include/lwip/**/*.h'
+    s.source_files = 'lwip/src/include/**/*.h'
+    s.public_header_files = 'lwip/src/include/**/*.h'
   end
   s.subspec 'port' do |s|
     s.header_mappings_dir = 'lwip/contrib/ports/unix/port/include/'
